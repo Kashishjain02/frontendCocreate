@@ -30,7 +30,7 @@ export const Login = () => {
         data.password = password;
         data.role = 'user';
         console.log(data);
-        API.post('http://127.0.0.1:8000/api-token-auth/', data)
+        API.post('http://3.218.252.166:8000/api-token-auth/', data)
             .then((data) => {
                 console.log("status",data.status);
                 setMessage(data.data.message);
