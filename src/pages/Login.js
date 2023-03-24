@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Grid, Button, Input, InputLabel, OutlinedInput, Divider, Typography } from '@mui/material';
 import { Link, useNavigate, Navigate, useParams } from 'react-router-dom';
 import API from '../api/api';
+import { base_url } from '../api/api';
 
 export const Login = () => {
     const redirect = useNavigate();
@@ -26,11 +27,12 @@ export const Login = () => {
     }
     const login = () => {
         const data = {};
+        const login_url=base_url+`api-token-auth/`;
         data.username = email;
         data.password = password;
         data.role = 'user';
         console.log(data);
-        API.post('http://3.218.252.166:8000/api-token-auth/', data)
+        API.post(login_url, data)
             .then((data) => {
                 console.log("status",data.status);
                 setMessage(data.data.message);

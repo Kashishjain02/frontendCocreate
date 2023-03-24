@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react'
 import AppBar from './Appbar'
 import moment from 'moment';
 import Modal from '@mui/material/Modal';
+import { base_url } from '../../api/api';
+import API from '../../api/api';
+import axios from 'axios';
+import { Input, InputLabel, OutlinedInput, Divider } from '@mui/material';
 
 const style = {
     position: 'absolute',
@@ -17,11 +21,68 @@ const style = {
     p: 4,
 };
 
+function RazorpayButton({ amount, orderId }) {
+    console.log("amount####", amount);
+    console.log("####orderId", orderId);
+  useEffect(() => {
+    const options = {
+      key: "rzp_test_AvD6vsvRd1viWC", // Enter the Key ID generated from the Dashboard
+      amount: amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency: "INR",
+      name: "CoCreate Labs", //your business name
+      description: "Test Transaction",
+      image: "https://example.com/your_logo",
+      order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      prefill: {
+        name: "Gaurav Kumar", //your customer's name
+        email: "gaurav.kumar@example.com",
+        contact: "9000090000",
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+      handler: function (response) {
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature);
+      },
+    };
+    const rzp1 = new window.Razorpay(options);
+    rzp1.on('payment.failed', function (response) {
+      alert(response.error.code);
+      alert(response.error.description);
+      alert(response.error.source);
+      alert(response.error.step);
+      alert(response.error.reason);
+      alert(response.error.metadata.order_id);
+      alert(response.error.metadata.payment_id);
+    });
+    document.getElementById('rzp-button1').onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    };
+  }, []);
+
+  return (
+    <Button id="rzp-button1">Pay</Button>
+  );
+}
 
 const User = () => {
+
+    const [addCredit, setAddCredit] = useState('');
+    const [orderID, setOrderID] = useState('');
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const [paymentModal, setPaymentModal] = useState(false);
+    const handlePaymentModelOpen = () => setPaymentModal(true);
+    const handlePaymentModelClose = () => setPaymentModal(false);
+
     const [meetings, setMeetings] = useState([]);
     const [proposedMentor, setProposedMentor] = useState([]);
     const getMentor = (mentor) => {
@@ -37,6 +98,47 @@ const User = () => {
             .then(data => setMeetings(data.data))
     }, [])
     console.log(meetings);
+
+    const [CreditData, setCredit] = useState([]);
+    const credit_api = base_url + `api/credit-info/`;
+    useEffect(() => {
+        const fetchData = async () => {
+        const token = localStorage.getItem('token'); 
+        const headers = { Authorization: token };
+        const result = await axios.get(credit_api, { headers });      
+        setCredit(result.data[0].credits);
+        };
+        fetchData();
+    }, []);
+
+
+    const createOrder = (e) => {
+        e.preventDefault();
+        const token = localStorage.getItem('token'); 
+        const headers = { Authorization: token };
+        const data = {};
+        const credit_url=base_url+`api/create_payment_order/`;
+        data.amount = addCredit*500;
+        console.log(data);
+        API.post(credit_url, data,{headers})
+            .then((data) => {
+                console.log("status",data.status);
+                if (data.status == 200) {
+                    console.log(data);
+                    setAddCredit(data.data.amount)
+                    setOrderID(data.data.id)
+
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+        handleClose();
+        handlePaymentModelOpen();
+
+    }
+
     return (
         <>
             <AppBar />
@@ -81,7 +183,7 @@ const User = () => {
 
 
                 </Grid>
-                <Modal
+                {/* <Modal
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
@@ -106,6 +208,43 @@ const User = () => {
                         <Typography variant='body1' style={{ fontSize: '18px' }} id="modal-modal-description" sx={{ mt: 2 }}>
                             Mentor Country:   {proposedMentor.countryCode}
                         </Typography>
+                    </Box>
+                </Modal> */}
+                you have {CreditData} credits left  
+                {/* <Button variant="contained" onClick={createOrder} style={{margin : '10px'}} disableElevation>
+                    Add Credits
+                </Button> */}
+                <Button onClick={handleOpen} style={{background : '#eee'}}>Add Credits</Button>
+                <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                >
+                <Box sx={style}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Text in a modal
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <form>
+                            <Box style={{ marginTop: '20px' }}>
+                                <InputLabel style={{ marginTop: '20px' }}>Add Credits</InputLabel>
+                                <OutlinedInput sx={{ height: '50px', width: '100%' }} value={addCredit} onChange={(e) => { setAddCredit(e.target.value) }} style={{ marginTop: '10px' }} type='number' placeholder='amount' required/>
+                            </Box>
+                            <Button onClick={createOrder} style={{ marginTop: '50px', width: '100%', height: '50px' }} variant='contained'>Pay</Button>
+
+                        </form>
+                    </Typography>
+                </Box>
+                </Modal>
+                <Modal
+                    open={paymentModal}
+                    onClose={handlePaymentModelClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <RazorpayButton amount={addCredit} orderId={orderID} />
                     </Box>
                 </Modal>
             </Box>

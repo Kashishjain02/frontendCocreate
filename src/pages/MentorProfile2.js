@@ -25,6 +25,7 @@ import Footer from '../components/Footer';
 import LinkedIn from '@mui/icons-material/LinkedIn';
 import { useState , useEffect} from 'react';
 import axios from 'axios';
+import { base_url } from '../api/api';
 
 
 const data = [
@@ -113,25 +114,28 @@ const Scroll = (e) => {
 
 function MentorProfile() {
         const [MentorData, setData] = useState([]);
-
+      
+const params = useParams();
+    console.log(params.id);
+    const profile_api = base_url + `api/mentordata/`+ params.id;
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get('http://127.0.0.1:8000/api/mentordata/1');
+      const result = await axios.get(profile_api);
       setData(result.data[0]);
     };
     fetchData();
   }, []);
+  console.log("#####",MentorData,profile_api)
 
-
+    
     const [value, setValue] = React.useState(0);
     // const [cardNum, setCardNum] = useState(0);
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    const params = useParams();
-    console.log(params.id);
-    const member = data[params.id];
-    console.log(member.img);
+    
+    // const member = data[params.id];
+    // console.log(member.img);
     return (
         <>
             <AppBar />

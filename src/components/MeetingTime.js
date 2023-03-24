@@ -9,6 +9,10 @@ import interactionPlugin from '@fullcalendar/interaction';
 import Modal from '@mui/material/Modal';
 import { Box } from '@mui/system';
 import { InputLabel,Button, OutlinedInput, Paper, TextField } from '@mui/material';
+import { base_url } from '../api/api';
+import API from '../api/api';
+
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -37,6 +41,30 @@ export const MeetingTime = (props) => {
     }
     const dateChange=(e)=>{
         setImmediate(e.target.value);
+    }
+
+    const submit=(e)=>{
+        e.preventDefault();
+        const token = localStorage.getItem('token'); 
+        const headers = { Authorization: token };
+        const data = {};
+        const credit_url=base_url+`api/mentortest/`;
+        data.date = date;
+        data.time = startTime;
+        console.log(data);
+        API.post(credit_url, data,{headers})
+            .then((data) => {
+                console.log("status",data.status);
+                if (data.status == 200) {
+                    console.log(data.data);
+                    
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })  
+            
+        props.handleNext()
     }
     const [date,setDate]= useState();
     const [startTime,setStartTime]= useState();
@@ -81,8 +109,11 @@ export const MeetingTime = (props) => {
                     <InputLabel>Starting Time</InputLabel>
                     <TextField type='date' value={date} onChange={(e)=>setDate(e.target.value)}   style={{ color: 'white', width: '150px' }} />
                     </Box>
-                    <Box style={{ alignItems:'end', display:'flex'}}>
+                    {/* <Box style={{ alignItems:'end', display:'flex'}}>
                         <Button variant='contained' onClick={props.handleNext}style={{marginLeft:'10px',width:'100px', height:'57px'}}>NEXT</Button>
+                    </Box> */}
+                    <Box style={{ alignItems:'end', display:'flex'}}>
+                        <Button variant='contained' onClick={submit}style={{marginLeft:'10px',width:'100px', height:'57px'}}>NEXT</Button>
                     </Box>
                     </Box>
                 </Paper>

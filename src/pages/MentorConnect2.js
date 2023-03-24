@@ -29,6 +29,7 @@ import { ListItemIcon } from '@mui/material';
 import { MentorCard2 } from '../components/MentorCard3';
 import Koulen from '../media/fonts/Koulen-Regular.ttf';
 import axios from 'axios';
+import { base_url } from '../api/api';
 
 
 
@@ -125,15 +126,16 @@ function MentorConnect()  {
         },
       });
 
-      const [MentorData, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get('http://127.0.0.1:8000/api/mentordata/');
-      setData(result.data);
-    };
-    fetchData();
-  }, []);
+    const [MentorData, setData] = useState([]);
+    const fetchMentor=base_url+ 'api/mentordata/'
+    useEffect(() => {
+        const fetchData = async () => {
+        const result = await axios.get(fetchMentor);
+        setData(result.data);
+        };
+        fetchData();
+    }, []);
+    console.log("#########",MentorData)
 
    
   

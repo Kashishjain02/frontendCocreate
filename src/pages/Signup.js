@@ -4,6 +4,7 @@ import { Container ,Box} from '@mui/system'
 import { Grid , Button, Input,InputLabel,Select, OutlinedInput, Divider, Typography} from '@mui/material';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import API from '../api/api';
+import { base_url } from '../api/api';
 
 export const Signup = () => {
     const h= window.innerHeight;
@@ -26,33 +27,36 @@ export const Signup = () => {
         else{
             setMessage('');
         }
-        data.firstName=firstName;
-        data.lastName= lastName;
+        data.name=firstName + " " + lastName;
         data.email= email;
         data.country= country;
         data.password= password;
         if(companyName!==''){
             data.companyName= companyName;
         }
-        API.post('/user/signup',data).then((d)=>{
-            if(d.data.data.code==11000){
-                setMessage('Already Registered');
-                setRegistered(true);
-            };
-            if(d.data.success){
-                setMessage('Successfully Registered');
-                setRegistered(true);
-                if(params.id==1){
-                    redirect('/user/login/1');
-                }
-                else{
-                    redirect('/user/login');
-                }
+        const reg_url=base_url+'api/startup-register/';
+        API.post(reg_url,data).then((data)=>{
+            // if(d.data.data.code==11000){
+            //     setMessage('Already Registered');
+            //     setRegistered(true);
+            // };
+            // if(d.data.success){
+            //     setMessage('Successfully Registered');
+            //     setRegistered(true);
+            //     if(params.id==1){
+            //         redirect('/user/login/1');
+            //     }
+            //     else{
+            //         redirect('/user/login');
+            //     }
 
-            }
-            else{
-                setRegistered(false);
-            }
+            // }
+            // else{
+            //     setRegistered(false);
+            // }
+            console.log(data);
+            localStorage.setItem('token', String(data.data.token));
+            redirect('../dashboard');
         })
         .catch((err)=>console.log(err));
         console.log(data);

@@ -58,8 +58,11 @@ function App() {
           <Route path="/user/login/:id" element={<Login />} />
           <Route path="/user/signup" element={<Signup />} />
           <Route path="/meeting" element={<MeetingForm />} />
-          <Route path="/Dashboard" element={user ? <User /> : <Home />} />
-          <Route path="/Dashboard/Mentor" element={user ? <Mentor /> : <Home />} />
+          {/* <Route path="/Dashboard" element={user ? <User /> : <Home />} /> */}
+          <Route path="/Dashboard" element={<User />} />
+
+          {/* <Route path="/Dashboard/Mentor" element={user ? <Mentor /> : <Home />} /> */}
+          <Route path="/Dashboard/Mentor" element={<Mentor />} />
           <Route path="/register" element={<Register/>}/>
           <Route path="/mockDash" element={<MockDash/>} />
         </Routes>
