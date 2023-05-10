@@ -25,9 +25,9 @@ import MentorConnect from './pages/MentorConnect.js';
 // import { LoginMentor } from './pages/LoginMentor';
 import { useEffect } from 'react';
 // import { Signup } from './pages/Signup';
-// import MeetingForm from './pages/MeetingForm';
+import MeetingForm from './pages/MeetingForm';
 // import { AboutUpdate } from './pages/AboutUpdate';
-// import User from './components/Dashboard/User';
+import User from './pages/User';
 // import Mentor from './components/Dashboard/Mentor';
 // import { Register } from './pages/Register';
 // import MockDash from './components/Dashboard/MockDash';
@@ -70,6 +70,9 @@ function App() {
         <Route path="/login" element={<SignInSide />} />
         <Route path="/mentor-connect" element={<MentorConnect />} />
         <Route path="/profile/:id" element={<MentorProfile />} />
+        <Route path="/meeting" element={<MeetingForm />} />
+        <Route path="/Dashboard" element={<User />} />
+
           {/* <Route path='/home' element={<Landing />} />
           <Route path='/investor' element={<Investor />}/>
           <Route path="/aboutus" element={<AboutUpdate />} />
