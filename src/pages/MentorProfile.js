@@ -87,7 +87,7 @@ const params = useParams();
         setValue(newValue);
     };
     
-        const profile_pic = `http://127.0.0.1:8000${MentorData.image}`;
+        const profile_pic = base_url + MentorData.image;
 
     // const member = data[params.id];
     // console.log(member.img);
