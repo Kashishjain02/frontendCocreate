@@ -3,16 +3,19 @@ import { Container } from '@mui/system';
 import { Box } from '@mui/system';
 import { Grid, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import Logo from "../assets/Logo1.png";
+
 
 const Footer = () => {
     return (
-        <div  style={{ backgroundColor: '#172E59', height: '150px', paddingTop: '50px', margin: '0px' }}>
+        <div  style={{ backgroundColor: '#172E59', height: '150px', paddingTop: '50px', margin: '0px' ,textcolor:'#fff'}}>
             <Container maxWidth="lg" style={{ display: 'flex' }} >
                 <Box sx={{ marginTop: '30px', width: '20%' }}>
-                    <Typography component="div" sx={{ textDecoration: 'none', flexGrow: 1, textAlign: 'left' }} style={{ color: 'black', fontSize: '30px', fontFamily: 'dancing script' }}>
-                        <RouterLink to='/home' style={{ textDecoration: "none", color: 'white' }}> CoCreate Labs
-                        </RouterLink>
-                    </Typography>
+                    <Typography component="div" sx={{ textDecoration: 'none', flexGrow: 1, textAlign: 'left' , maxWidth: '300px'}} style={{ color: 'black', fontSize: '30px', fontFamily: 'dancing script' }}>
+                            <RouterLink to='/' style={{ textDecoration: "none", color: 'black' }}>
+                                <img src={Logo} style={{height: '40px', marginTop: '15px', marginLeft: '10px'}}/>
+                            </RouterLink>
+                        </Typography>
                 </Box>
                 <Box style={{ backgroundColor: 'none',color:'white', width: '100%', paddingLeft: '100px', paddingTop: '0px', marginLeft: '50px', marginTop: '-20px', height: '100%', display: 'flex' }}>
                     <Grid container rowSpacing={1} style={{fontFamily:'Roboto'}} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

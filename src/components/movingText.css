@@ -1,0 +1,37 @@
+#target {
+  width: 100vw;
+  animation: rightToLeft 15s linear infinite;
+}
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(1300px);
+  }
+  100% {
+    transform: translateX(-1450px);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #target {
+    width: fit-content;
+    animation: rightToLeft 25s linear infinite;
+  }
+  @keyframes rightToLeft {
+    0% {
+      transform: translateX(400px);
+    }
+    100% {
+      transform: translateX(-1450px);
+    }
+  }
+}
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 9rem 3rem 9rem;
+  gap: 3rem;
+  margin-left: 2px;
+  overflow: hidden;
+}

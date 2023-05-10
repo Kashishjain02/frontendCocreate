@@ -1,0 +1,24 @@
+.knowledge-parent-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 148px;
+}
+
+.knowledge-heading{
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 48px;
+line-height: 64px;
+/* or 133% */
+
+
+/* Dark blue */
+
+color: #282938;
+}
+
+/* .knowledge-card-container{
+
+} */

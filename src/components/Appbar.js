@@ -32,6 +32,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 // assets
 // import { IconBook, IconCreditCard, IconDashboard, IconHome2 } from '@tabler/icons';
 import MenuIcon from '@mui/icons-material/Menu';
+import Logo from "../assets/Logo1.png";
+
 
 function ElevationScroll({ children, window }) {
     const theme = useTheme();
@@ -110,36 +112,38 @@ const AppBar = ({ ...others }) => {
                 <Container maxWidth='xl' sx={{ padding: '5px', alignContent: 'center' }} >
                     <Toolbar style={{display: 'flex', justifyContent: "space-between"}}>
                         <Typography component="div" sx={{ textDecoration: 'none', flexGrow: 1, textAlign: 'left' , maxWidth: '300px'}} style={{ color: 'black', fontSize: '30px', fontFamily: 'dancing script' }}>
-                            <RouterLink to='/home' style={{ textDecoration: "none", color: 'black' }}>
-                                <img src={'/assets/logo_1.png'} style={{height: '40px', marginTop: '15px', marginLeft: '10px'}}/>
+                            <RouterLink to='/' style={{ textDecoration: "none", color: 'black' }}>
+                                <img src={Logo} style={{height: '40px', marginTop: '15px', marginLeft: '10px'}}/>
                             </RouterLink>
                         </Typography>
                         <Stack direction="row" sx={{ display: { xs: 'none', sm: 'block' } }} spacing={3}>
-                            <RouterLink to='/mentors' style={{ textDecoration: 'none' }}>  <Button id='mentorConnect' value='mentor' style={{ color: 'rgb(54, 63, 84)', background: buttonColor[0], fontWeight: '700', fontSize: '14px', textTransform: 'none', fontFamily: 'roboto', height: '45px', padding: '0px 15px', transition: 'backgroundColor 2s' }}>
+                            <RouterLink to='/mentor-connect' style={{ textDecoration: 'none' }}>  <Button id='mentorConnect' value='mentor' style={{ color: 'rgb(54, 63, 84)', background: buttonColor[0], fontWeight: '700', fontSize: '14px', textTransform: 'none', fontFamily: 'roboto', height: '45px', padding: '0px 15px', transition: 'backgroundColor 2s' }}>
                                 <p>Mentor Connect</p>
                             </Button>
                             </RouterLink>
-                            <RouterLink to='/investor' style={{ textDecoration: 'none' }}> <Button style={{ color: 'rgb(54, 63, 84)', fontWeight: '700', fontSize: '14px', textTransform: 'none', fontFamily: 'roboto' }}  >
+                            <RouterLink to='/investor-connect' style={{ textDecoration: 'none' }}> <Button style={{ color: 'rgb(54, 63, 84)', fontWeight: '700', fontSize: '14px', textTransform: 'none', fontFamily: 'roboto' }}  >
                                 Investor Connect
                             </Button>
                             </RouterLink>
+                            <RouterLink to='/grant-connect' style={{ textDecoration: 'none' }}>
                             <Button style={{ color: 'rgb(54, 63, 84)', fontWeight: '700', fontSize: '14px', textTransform: 'none', fontFamily: 'roboto' }} >
                                 Grants Connect
                             </Button>
+                            </RouterLink>
                             </Stack>
                             <Stack direction="row" spacing={1}>
-                            <RouterLink style={{ textDecoration: 'none' }} to='/aboutus'>
+                            <RouterLink style={{ textDecoration: 'none' }} to='/about'>
                                 <Button style={{ color: 'rgb(54, 63, 84)', textTransform: 'none', fontWeight: '700', fontSize: '14px', fontFamily: 'roboto' }} >
                                     About Us
                                 </Button>
                             </RouterLink>
-                            <RouterLink to='/user/login' style={{ textDecoration: 'none' }}>
+                            <RouterLink to='/login' style={{ textDecoration: 'none' }}>
                                 {localStorage.getItem('token') == null ? <Button
 
 
                                     disableElevation
                                     variant="contained"
-                                    style={{ color: 'white', background: 'rgba(36, 61, 102, 1)', fontWeight: '700', fontSize: '14px', textTransform: 'none', fontFamily: 'roboto', padding: '10px 30px', borderRadius: '7px' }}
+                                    style={{ color: 'white', background: '#000', fontWeight: '700', fontSize: '14px', textTransform: 'none', fontFamily: 'roboto', padding: '10px 30px', borderRadius: '7px' }}
                                 >
                                     Get Started
                                 </Button> : <></>}

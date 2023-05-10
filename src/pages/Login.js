@@ -1,19 +1,36 @@
-import { Container, Box } from '@mui/system'
-import React, { useState } from 'react';
-import { Grid, Button, Input, InputLabel, OutlinedInput, Divider, Typography } from '@mui/material';
-import { Link, useNavigate, Navigate, useParams } from 'react-router-dom';
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import  { useState } from 'react';
+import {  useNavigate, Navigate, useParams } from 'react-router-dom';
 import API from '../api/api';
 import { base_url } from '../api/api';
 
-export const Login = () => {
+
+
+const theme = createTheme();
+
+export function SignInSide() {
     const redirect = useNavigate();
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
-    const h = window.innerHeight;
-    const navigate = useNavigate();
     const [isLogged, setLogged] = useState(false);
     const params = useParams();
+
     let loc = '';
     if (localStorage.getItem('token') != null) {
       redirect('/');
@@ -57,43 +74,105 @@ export const Login = () => {
             .catch(err => {
                 console.log(err);
             })
-    }
-    const logout = (e) => {
-        e.preventDefault();
-        localStorage.removeItem('token');
-        localStorage.removeItem('User', null);
-        localStorage.removeItem('UserID', null);
-        // window.location.reload();
-        console.log("Logout...")
-        navigate('/home')
-    }
-    return (
-        <>
-            {localStorage.getItem('token') != null ? <>You Are Already Logged IN <Button onClick={logout}>LOG OUT</Button></> :
-                <div style={{ background: 'linear-gradient(90deg, rgba(91,84,176,1) 0%, rgba(51,195,172,1) 48%, rgba(0,212,255,1) 95%)' }} >
-                    <Container maxWidth={'lg'} style={{ display: 'flex', alignItem: 'center', height: h, alignItems: 'center', justifyContent: 'center' }}>
-                        <Box style={{ width: '35%', height: '85%', backgroundColor: 'white', borderRadius: '20px', padding: '40px', alignItems: 'center' }}>
-                            <center><Typography style={{ fontFamily: 'dancing script', fontSize: '30px' }}>CoCreate Labs</Typography> </center>
-                            <form>
-                                <Box style={{ marginTop: '20px' }}>
-                                    <InputLabel style={{ marginTop: '20px' }}>Email</InputLabel>
-                                    <OutlinedInput sx={{ height: '50px', width: '100%' }} value={email} onChange={(e) => { setEmail(e.target.value) }} style={{ marginTop: '10px' }} type='email' placeholder='email' />
-                                </Box>
-                                <Box>
-                                    <InputLabel style={{ marginTop: '30px' }}>Password</InputLabel>
-                                    <OutlinedInput sx={{ height: '50px', width: '100%' }} value={password} onChange={(e) => { setPassword(e.target.value) }} style={{ marginTop: '10px' }} type='password' placeholder='password'></OutlinedInput>
-                                </Box>
 
-                                <Button onClick={login} style={{ marginTop: '50px', width: '100%', height: '50px' }} variant='contained'>Login</Button>
-                            </form>
-                            {message}
-                            <h2 style={{ width: '100%', textAlign: 'center', borderBottom: '1px solid #1565C0', lineHeight: '0.1em', margin: '50px 0 20px', fontWeight: '500', color: '#1565C0' }}><span style={{ backgroundColor: 'white' }}>OR</span></h2>
-                            <Link to={loc}><Button style={{ marginTop: '50px', width: '100%', height: '50px' }} variant='contained'>Sign Up</Button>
-                            </Link>
-                        </Box>
-                    </Container>
-                </div>
-            }
-        </>
-    )
+    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                onChange={(e) => { setEmail(e.target.value) }}
+                autoComplete="email"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                onChange={(e) => { setPassword(e.target.value) }}
+                autoComplete="current-password"
+              />
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                onClick={login}
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href="/register" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
+  );
 }
+
+export default SignInSide;
