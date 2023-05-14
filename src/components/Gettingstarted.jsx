@@ -2,6 +2,7 @@ import React from "react";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import "./gettingstarted.css";
 import rightarrow from "../assets/line.png";
+import Link from '@mui/material/Link';
 
 const Gettingstarted = () => {
   return (
@@ -13,13 +14,17 @@ const Gettingstarted = () => {
             <h2>Get started with us Sign up Today!</h2>
           </div>
           <div className="button-container">
-            <button id="btn1">
-              Sign Up{" "}
-              <span>
-                <img src={rightarrow} alt="" />
-              </span>
-            </button>
+            <Link href="/register" variant="body2">
+              <button id="btn1">
+                Sign Up{" "}
+                <span>
+                  <img src={rightarrow} alt="" />
+                </span>
+              </button>
+            </Link>
+            <Link href="/dashboard" variant="body2">
             <button id="btn2">Get Free Credit</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -158,13 +158,19 @@ export const Register = () => {
         data.password= password;
         
             data.companyName= companyName;
-        console.log("data: " ,data)
         API.post('api/startup-register/',data).then((d)=>{
-          console.log("response: ",d)  
-          if(d.data.data.code==11000){
+          console.log("response: ",d.status,d)  
+          if(d.status==400){
                 setMessage('Already Registered');
                 setRegistered(true);
             };
+          if(d.status==201){
+                setMessage('Registered');
+                setRegistered(true);
+                localStorage.setItem('token',d.data.token);
+                redirect('/dashboard');
+            };  
+        
             if(d.data.success){
                 setMessage('Successfully Registered');
                 setRegistered(true);
@@ -180,7 +186,10 @@ export const Register = () => {
                 setRegistered(false);
             }
         })
-        .catch((err)=>console.log(err));
+        .catch((err)=>{
+            console.log(err.response.data.error);
+            setMessage(err.response.data.error);
+        });
         console.log(data);
     }
 
@@ -470,7 +479,7 @@ export const Register = () => {
                 </form>
                 </Box>
 
-                <p>{message}</p>
+                <p style={{color:"red"}}>{message}</p>
                 {registered?<Link to='/user/login'><Button style={{marginTop:'10px', width:'100%',height:'50px'}} variant='contained'>Login</Button></Link>:<></>}
                 <Box style={{width:'100%', marginBottom:'30px', justifyContent:'center', display:'flex'}}>
             </Box>

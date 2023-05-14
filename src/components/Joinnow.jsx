@@ -3,6 +3,7 @@ import "./joinnow.css";
 import Iphoneimg from "../assets/iphoneimg.png";
 import Greenellipse from "../assets/greenellipse.png";
 import Blueellipse from "../assets/blueellipse.png";
+import Link from '@mui/material/Link';
 
 const Joinnow = () => {
   return (
@@ -26,8 +27,12 @@ const Joinnow = () => {
                 </p>
               </div>
               <div className="joinnow-button-container">
-                <button className="buynow"> Buy Now </button>
-                <button className="getcredits">Get Credits</button>
+                <Link href="/dashboard" variant="body2">
+                  <button className="buynow"> Buy Now </button>
+                </Link>
+                <Link href="/dashboard" variant="body2">
+                  <button className="getcredits">Get Credits</button>
+                </Link>
               </div>
             </div>
 
