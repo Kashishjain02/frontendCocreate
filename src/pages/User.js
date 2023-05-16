@@ -26,6 +26,7 @@ const style = {
 };
 
 function RazorpayButton({ amount, orderId }) {
+  console.log("amount at line 29",amount)
   useEffect(() => {
     const options = {
       key: "rzp_test_AvD6vsvRd1viWC", // Enter the Key ID generated from the Dashboard
