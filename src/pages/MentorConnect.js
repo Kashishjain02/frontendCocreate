@@ -198,10 +198,6 @@ function MentorConnect()  {
                     />
                     </div>
                     <Stack direction="row" spacing={3} style={{marginLeft: '10px', justifyContent: 'center'}}>
-                        {/* <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel> */}
-                        {/* <Box>
-                            <Typography style={{ marginTop: '35px', color: '#0082AB', fontWeight: '700'}}>Advanced</Typography>
-                        </Box> */}
                         <Box style= {{marginTop: '20px'}}>
                             <FormControl sx={{ m: 1, minWidth: 120 }} size= 'small' >
                                 <InputLabel id="demo-simple-select-helper-label">Industry</InputLabel>
