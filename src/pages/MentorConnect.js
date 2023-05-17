@@ -333,31 +333,6 @@ function MentorConnect()  {
                     
                     return <Grid item lg={4} md={6} sm={12}> <MentorCard2 mentor={item}/></Grid>
                 })}
-                    {/* <MentorCard2 /> */}
-                {/* <Grid item lg={4} md={6} sm={12}>
-                    <MentorCard2 />
-                </Grid>
-                <Grid item lg={4} md={6} sm={12}>
-                    <MentorCard2 />
-                </Grid>
-                <Grid item lg={4} md={6} sm={12}>
-                    <MentorCard2 />
-                </Grid>
-                <Grid item lg={4} md={6} sm={12}>
-                    <MentorCard2 />
-                </Grid>
-                <Grid item lg={4} md={6} sm={12}>
-                    <MentorCard2 />
-                </Grid>
-                <Grid item lg={4} md={6} sm={12}>
-                    <MentorCard2 />
-                </Grid>
-                <Grid item lg={4} md={6} sm={12}>
-                    <MentorCard2 />
-                </Grid>
-                <Grid item lg={4} md={6} sm={12}>
-                    <MentorCard2 />
-                </Grid> */}
             </Grid>
             </Container>
             <Box style={{width:'100%', marginBottom:'30px', justifyContent:'center', display:'flex'}}>

@@ -25,73 +25,7 @@ const style = {
     p: 4,
 };
 
-function RazorpayButton({ amount, orderId }) {
-  console.log("amount at line 29",amount)
-  useEffect(() => {
-    const options = {
-      key: "rzp_test_AvD6vsvRd1viWC", // Enter the Key ID generated from the Dashboard
-      amount: amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      currency: "INR",
-      name: "CoCreate Labs", //your business name
-      description: "Test Transaction",
-      image: "https://example.com/your_logo",
-      order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      prefill: {
-        name: "Gaurav Kumar", //your customer's name
-        email: "gaurav.kumar@example.com",
-        contact: "9000090000",
-      },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#3399cc",
-      },
-      handler: function (response) {
-        console.log("response",response);
-        const token = localStorage.getItem('token'); 
-        const headers = { Authorization: token };
-        const data = {};
-        const credit_url=base_url+`api/payment-success/`;
-        data.amount = 250;
-        console.log(data);
-        API.post(credit_url, data,{headers})
-            .then((data) => {
-                console.log("status",data.status);
-                if (data.status == 200) {
-                    console.log(data.data);
-                    
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
 
-        alert(response.razorpay_payment_id);
-        // alert(response.razorpay_order_id);
-        // alert(response.razorpay_signature);
-      },
-    };
-    const rzp1 = new window.Razorpay(options);
-    rzp1.on('payment.failed', function (response) {
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
-    });
-    document.getElementById('rzp-button1').onclick = function (e) {
-      rzp1.open();
-      e.preventDefault();
-    };
-  }, []);
-
-  return (
-    <Button id="rzp-button1">Pay</Button>
-  );
-}
 
 
 const Dashboard = () => {
@@ -125,22 +59,52 @@ const Dashboard = () => {
         fetchData();
     }, []);
 
+    const [applications, setApplications] = useState([]);
+    const application_api = base_url + `api/application-info/`;
+    useEffect(() => {
+        const fetchData = async () => {
+        const token = localStorage.getItem('token'); 
+        const headers = { Authorization: token };
+        const result = await axios.get(application_api, { headers });      
+        setApplications(result.data);
+        };
+        fetchData();
+    }, []);
 
-    const createOrder = (e) => {
-        e.preventDefault();
+    const createOrder = (event,amount) => {
+        event.preventDefault();
         const token = localStorage.getItem('token'); 
         const headers = { Authorization: token };
         const data = {};
         const credit_url=base_url+`api/create_payment_order/`;
-        data.amount = addCredit;
-        console.log(data);
+        data.amount = amount; //Add amount here
         API.post(credit_url, data,{headers})
             .then((data) => {
-                console.log("status",data.status);
                 if (data.status == 200) {
-                    console.log(data);
-                    setAddCredit(data.data.amount)
-                    setOrderID(data.data.id)
+
+                    const options = {
+                        key: "rzp_test_AvD6vsvRd1viWC", // Enter the Key ID generated from the Dashboard
+                        amount: amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                        currency: "INR",
+                        name: "CoCreate Labs", //your business name
+                        description: "Test Transaction",
+                        image: "https://example.com/your_logo",
+                        order_id: data.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                        prefill: {
+                            name: "Gaurav Kumar", //your customer's name
+                            email: "gaurav.kumar@example.com",
+                            contact: "9000090000",
+                        },
+                        notes: {
+                            address: "Razorpay Corporate Office",
+                        },
+                        theme: {
+                            color: "#ff6b00",
+                        },
+                        
+                    };
+                    const rzp1 = new window.Razorpay(options);
+                    rzp1.open();
 
                 }
             })
@@ -148,10 +112,10 @@ const Dashboard = () => {
                 console.log(err);
             })
 
-        handleClose();
-        handlePaymentModelOpen();
-
+       
     }
+
+
   return (
     <Box>
       {/* <AppBar /> */}
@@ -161,11 +125,12 @@ const Dashboard = () => {
             <Grid item xs={12} sm={6} md={4}>
               <Paper>
                 <Box style={{height: '60%', marginLeft: '20px'}}>
-                            <h3>Upcoming Meetings :</h3>
-                            <p>- <a href="#" style={{textDecoration: 'none'}}>Dominic Monn</a> - 23-Nov - 12:00-1:00</p>
-                            <p>- <a href="#" style={{textDecoration: 'none'}}>Earl Friedberg</a> - 29-Nov - 4:00-5:00</p>
-                            <p>- <a href="#" style={{textDecoration: 'none'}}>Excepteur irure occaecat ullamco</a></p>
-                            <p>- <a href="#" style={{textDecoration: 'none'}}>ipsum loren occaecat</a></p>
+                            <h3>Applications Under Review :</h3>
+                            {applications.map((item)=>{
+                    
+                                return <p>- <a href="#" style={{textDecoration: 'none'}}>{item.mentor_name}</a></p>
+                            })}
+                            
                             <br/>
                         </Box>
               </Paper>
@@ -174,9 +139,9 @@ const Dashboard = () => {
               <Paper>
                 <Box style={{height: '60%', marginLeft: '20px'}}>
                             
-                            <h3>Upcoming events :</h3>
-                            <p>- <a href="#" style={{textDecoration: 'none'}}>Excepteur irure occaecat ullamco</a></p>
-                            <p>- <a href="#" style={{textDecoration: 'none'}}>ipsum loren occaecat</a></p>
+                            <h3>Upcoming Meetings :</h3>
+                            <p>- <a href="/zoom/" style={{textDecoration: 'none'}}>Excepteur irure occaecat ullamco</a></p>
+                            <p>- <a href="/zoom/" style={{textDecoration: 'none'}}>ipsum loren occaecat</a></p>
                             <br/>
                             
                         </Box>
@@ -185,7 +150,7 @@ const Dashboard = () => {
             <Grid item xs={12} md={4}>
               <Paper>
             <Typography variant="h6">Current Credits</Typography>
-            <Typography variant="subtitle1">100 Credits</Typography>
+            <Typography variant="subtitle1">{CreditData}</Typography>
 
 
                 <Box p={2}>
@@ -201,7 +166,8 @@ const Dashboard = () => {
                   </Box>
                   <Box mt={2}>
                     <Box sx={style}>
-                        <RazorpayButton amount={addCredit} orderId={orderID} />
+                        {/* <RazorpayButton amount={addCredit} orderId={orderID} /> */}
+                        <Button onClick={(event) => createOrder(event,parseInt(addCredit, 10)*100)} >Pay </Button>
                     </Box>
                   </Box>
                 </Box>

@@ -6,13 +6,15 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 // import Koulen from '../media/fonts/Koulen-Regular.ttf';
 import {createTheme} from '@mui/material';
+import { base_url } from '../../api/api';
 
 
 export const MentorCard2 = (props) => {
 
     const profile_link = `/profile/${props.mentor.mentor}`;
     console.log(props.mentor.image);
-    const profile_pic = `http://127.0.0.1:8000${props.mentor.image}`;
+    const profile_pic = base_url + props.mentor.image;
+    // const profile_pic = `http://127.0.0.1:8000${props.mentor.image}`;
     const theme = createTheme({
         // typography: {
         //   fontFamily: 'Koulen, cursive',

@@ -29,6 +29,7 @@ import MeetingForm from './pages/MeetingForm';
 // import { AboutUpdate } from './pages/AboutUpdate';
 import User from './pages/User';
 import Test from './pages/Test';
+import {ZoomMeeting} from './pages/ZoomMeet'
 
 // import Mentor from './components/Dashboard/Mentor';
 // import { Register } from './pages/Register';
@@ -44,6 +45,7 @@ import { Connect } from "./pages/Connect";
 import { About } from "./pages/About";
 import { Register } from "./pages/Register";
 import MentorProfile from './pages/MentorProfile';
+import Apply from './pages/BookSession';
 import Footer from "./components/Footer";
 import AppBar from './components/Appbar';
 
@@ -72,8 +74,10 @@ function App() {
         <Route path="/login" element={<SignInSide />} />
         <Route path="/mentor-connect" element={<MentorConnect />} />
         <Route path="/profile/:id" element={<MentorProfile />} />
+        <Route path="/apply/:id" element={<Apply />} />
         <Route path="/meeting" element={<MeetingForm />} />
         <Route path="/Dashboard" element={<User />} />
+        <Route path='/zoom' element={<ZoomMeeting />} />
         <Route path="/test" element={<Test />} />
           {/* <Route path='/home' element={<Landing />} />
           <Route path='/investor' element={<Investor />}/>

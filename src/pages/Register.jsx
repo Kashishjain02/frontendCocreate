@@ -163,6 +163,7 @@ export const Register = () => {
           if(d.status==400){
                 setMessage('Already Registered');
                 setRegistered(true);
+                redirect('/login')
             };
           if(d.status==201){
                 setMessage('Registered');
@@ -171,20 +172,7 @@ export const Register = () => {
                 redirect('/dashboard');
             };  
         
-            if(d.data.success){
-                setMessage('Successfully Registered');
-                setRegistered(true);
-                if(params.id==1){
-                    redirect('/user/login/1');
-                }
-                else{
-                    redirect('/user/login');
-                }
-
-            }
-            else{
-                setRegistered(false);
-            }
+            
         })
         .catch((err)=>{
             console.log(err.response.data.error);

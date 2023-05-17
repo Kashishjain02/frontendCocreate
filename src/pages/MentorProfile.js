@@ -137,7 +137,7 @@ const params = useParams();
                                                 </span>
                                                 <br/>
 
-                                                <center><RouterLink style={{ textDecoration: 'none' }} to='/meeting'><Button variant='contained' style={{ width: '70%', background: 'rgba(36, 61, 102, 1)' }}>Book An Appointment</Button></RouterLink></center>
+                                                <center><RouterLink style={{ textDecoration: 'none' }} to={`/apply/${MentorData.mentor}`}><Button variant='contained' style={{ width: '70%', background: 'rgba(36, 61, 102, 1)' }}>Apply for Mentorship</Button></RouterLink></center>
                                             </Stack>
                                         </TabPanel>
                                         <TabPanel value={value} index={1}>
