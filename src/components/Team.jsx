@@ -1,10 +1,11 @@
 import React from "react";
-
+import teamimg from "../assets/teamimg.png"
+import "./team.css";
 const Team = () => {
   return (
     <>
       <div className="team-parent-container">
-        <div className="team-top-container">
+        {/* <div className="team-top-container">
           <h5>
             <b>Our Team</b>
           </h5>
@@ -34,7 +35,11 @@ const Team = () => {
                     <p>Web Developer</p>
                 </div>
             </div>
-        </team-img-container>
+        </team-img-container> */}
+        <img src={teamimg} alt="" class="w-full"/>
+        {/* <div className="team-bottom-container bg-indigo-700 h-36 text-center" mt-10>
+          <p class="font-sans font-normal font-medium text-2xl leading-8 capitalize text-white">What are you waiting for? Start your growth today!</p>
+        </div> */}
       </div>
     </>
   );

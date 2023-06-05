@@ -11,10 +11,15 @@ import Joinnow from "../components/Joinnow";
 import Accordion from "../components/Accordion/Accordion";
 import { Bluerectangle } from "../components/Bluerectangle";
 import Changemaker from "../components/Changemaker";
+import Fade from 'react-reveal/Fade';
+import Flip from 'react-reveal/Flip';
+import Slide from 'react-reveal/Slide';
+
 
 export const Landing = () => {
   return (
-    <>
+    <> 
+      {/* <Fade bottom distance='2%' delay={100} duration={1000}> */}
       {<Home />}
       {<Offerings />}
       {<MovingLogo />}
@@ -22,11 +27,12 @@ export const Landing = () => {
       {<Whyjoin />}
       {<Joinnow />}
       {<UpcomingEvent />}
-      {/* {<Changemaker />} */}
-      {/* {<Knowledge />} */}
+      {<Changemaker />}
+      {<Knowledge />}
       {<Bluerectangle />}
       {<Accordion />}
       {<Newsletter />}
+      {/* </Fade> */}
     </>
   );
 };

@@ -3,7 +3,6 @@ import "./joinnow.css";
 import Iphoneimg from "../assets/iphoneimg.png";
 import Greenellipse from "../assets/greenellipse.png";
 import Blueellipse from "../assets/blueellipse.png";
-import Link from '@mui/material/Link';
 
 const Joinnow = () => {
   return (
@@ -19,20 +18,22 @@ const Joinnow = () => {
                 <p className="joinnow-primary-heading">
                   Join now & Become member Apply For Credit !
                 </p>
+                <br />
+                <br />
+                <br />
               </div>
+              
               <div>
                 <p className="joinnow-primary-text">
                   Avail mentoring sessions on demand. Buy credits to avail
                   access easily. Anytime. Anywhere.
                 </p>
+                <br />
+                <br />
               </div>
               <div className="joinnow-button-container">
-                <Link href="/dashboard" variant="body2">
-                  <button className="buynow"> Buy Now </button>
-                </Link>
-                <Link href="/dashboard" variant="body2">
-                  <button className="getcredits">Get Credits</button>
-                </Link>
+                <button className="buynow"> Buy Now </button>
+                <button className="getcredits">Get Credits</button>
               </div>
             </div>
 

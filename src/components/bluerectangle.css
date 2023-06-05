@@ -3,12 +3,13 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+    /* margin-top: -5%; */
 }
 
 .blue-rectangle-content{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-items: center;
     gap: 3rem;
     padding: 4em;
@@ -34,7 +35,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .blue-rectangle-left-icon img{
@@ -51,7 +52,7 @@
 @media (max-width: 767px) {
     .blue-rectangle-content {
     padding: 2em;
-    flex-direction: column;
+    /* flex-direction: column; */
         /* gap: 3rem; */
         overflow: hidden;
 }

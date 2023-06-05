@@ -1,10 +1,16 @@
+.changemaker-parent-container{
+    display: flex;
+    margin-bottom: 70px;
+    background: #F4F7FF;
+    padding: 5em;
+}
+.changemaker-parent-container img{
+    width: 2000px;
+    padding: 2em;
+}
 .changemaker-content-container{
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
-    /* padding: 10em 18em; */
-    margin-right: 12%;
 }
 
 .changemaker-top-content{

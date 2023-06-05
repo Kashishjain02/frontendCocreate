@@ -1,6 +1,9 @@
 import React from "react";
 import eventimg1 from "../assets/eventimg1.png";
 import "./upcomingevents.css";
+import imgh1 from "../assets/Group 12.png";
+import imgh2 from "../assets/Group 13.png";
+import imgh3 from "../assets/Group 14.png";
 
 const Upcomingevents = () => {
   return (
@@ -9,7 +12,7 @@ const Upcomingevents = () => {
       <div className="upcomingevents-container">
           <div className="event-primary-heading">
             <h3>
-              <b>Upcoming Events</b>
+              Upcoming Events
             </h3>
           </div>
           <div className="event-primary-title">
@@ -20,109 +23,13 @@ const Upcomingevents = () => {
             </p>
           </div>
         </div>
-        <div className="evnts-card-container">
-          <div className="events-card">
-            <div className="event-img">
-              <img
-                src={eventimg1}
-                alt=""
-                height={256}
-                style={{ width: "100%" }}
-              />
-            </div>
-            <div className="eventcard-text-container">
-              <div className="event-date-month-container">
-                <div className="event-month-container">
-                  <p>APR</p>
-                </div>
-                <div className="event-date-container">
-                  <h3>14</h3>
-                </div>
-              </div>
-              <div className="event-heading-description-container">
-                <div className="event-card-heading">
-                  <h6>
-                    <b>Mentor Connect Event Taj Vivanta, Bangalore</b>
-                  </h6>
-                </div>
-                <div className="event-card-description">
-                  <p>
-                    We’ll get you directly seated and inside for you to enjoy
-                    the show.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="events-card">
-            <div className="event-img">
-              <img
-                src={eventimg1}
-                alt=""
-                height={256}
-                style={{ width: "100%" }}
-              />
-            </div>
-            <div className="eventcard-text-container">
-              <div className="event-date-month-container">
-                <div className="event-month-container">
-                  <p>APR</p>
-                </div>
-                <div className="event-date-container">
-                  <h3>14</h3>
-                </div>
-              </div>
-              <div className="event-heading-description-container">
-                <div className="event-card-heading">
-                  <h6>
-                    <b>Mentor Connect Event Taj Vivanta, Bangalore</b>
-                  </h6>
-                </div>
-                <div className="event-card-description">
-                  <p>
-                    We’ll get you directly seated and inside for you to enjoy
-                    the show.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="events-card">
-            <div className="event-img">
-              <img
-                src={eventimg1}
-                alt="sample"
-                height={256}
-                style={{ width: "100%" }}
-              />
-            </div>
-            <div className="eventcard-text-container">
-              <div className="event-date-month-container">
-                <div className="event-month-container">
-                  <p>APR</p>
-                </div>
-                <div className="event-date-container">
-                  <h3>14</h3>
-                </div>
-              </div>
-              <div className="event-heading-description-container">
-                <div className="event-card-heading">
-                  <h6>
-                    <b>Mentor Connect Event Taj Vivanta, Bangalore</b>
-                  </h6>
-                </div>
-                <div className="event-card-description">
-                  <p>
-                    We’ll get you directly seated and inside for you to enjoy
-                    the show.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="event-card-container flex flex-wrap">
+        <img className="w-70 transform scale-100 hover:scale-105" src={imgh1} alt="" />
+        <img className="w-70 transform scale-100 hover:scale-105" src={imgh2} alt="" />
+        <img className="w-70 transform scale-100 hover:scale-105" src={imgh3} alt="" />
         </div>
+        
         <div className="events-button-container">
           <button className="loadmore">Learn More</button>
         </div>

@@ -3,13 +3,16 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 3% 7%;
+  text-align: center;
+  padding: 2em;
+  overflow: hidden;
 }
 
 .join-primary-heading {
   text-align: center;
+  width: 30%;
   color: black;
-  margin-bottom: 73px;
+  margin-bottom: 3px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -22,10 +25,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-bottom: 91px;
+  margin-bottom: 50px;
   gap: 7rem;
   background: #ffffff;
-  padding: 1% 4% 1% 4%;
+  padding: 0% 15% 1% 15%;
+  width: 60%;
 }
 
 .card {
@@ -37,6 +41,8 @@
   background-color: #f4f7ff;
   border-radius: 10px;
   border: 1px solid #ddd;
+  width: 364.77px;
+  /* height: 350px; */
   padding: 10% 30% 12% 30%;
 }
 
@@ -62,7 +68,6 @@
 .whyjoin-parent-container {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   justify-content: space-evenly;
   align-items: center;
   gap: 7rem;
@@ -72,11 +77,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  /* flex-wrap: wrap; */
   gap: 6rem;
   align-items: center;
   background: white;
-  padding: 1% 5% 1% 5%;
+  padding: 1% 5% 1% 10%;
 }
 
 .join-text-section {
@@ -87,8 +91,11 @@
 }
 
 .join-img-section img {
-  width: 603.9px;
+  /* width: 603.9px; */
   height: 398px;
+}
+.responsive-img{
+  padding: 1.4em;
 }
 
 .join-parent-conatainer2 {
@@ -99,29 +106,27 @@
   height: 654px;
   background: #f4f6fc;
   gap: 3rem;
-  padding: 1% 5% 1% 5%;
+  padding: 1% 5% 1% 11%;
 }
 
 .join-primary-title {
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 32px;
-  color: #0096f6;
+  color: #0096F6;
   opacity: 0.87;
-  margin-bottom: 30px;
 }
 
-.join-primary-text {
-  font-family: "DM Sans";
+.join-primary-text b {
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
   font-size: 38px;
   line-height: 50px;
   text-transform: capitalize;
   color: #232536;
-  margin-bottom: 45px;
 }
 
 .join-primary-text1 {
@@ -137,6 +142,12 @@
 .join-text-primary {
   width: fit-content;
   color: #0096f6;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 50px;
+  text-transform: capitalize;
 }
 
 /* Media queries for responsive layout */

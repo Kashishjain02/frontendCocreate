@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./feedbackform.css";
+import Fade from "react-reveal/Fade";
 
 function FeedbackForm() {
   const [name, setName] = useState('');
@@ -17,46 +18,40 @@ function FeedbackForm() {
   }
 
   return (
-      
     <form className='contactform-parent-container' onSubmit={handleSubmit}>
+      <Fade top distance='20%' duration={1000} delay={100}>
       <div className="contactform-subparent-container">
         <div className="contactform-heading-container">
-          <h3> <b>If You Are An Investor, We'd Love to Hear from You</b>
-          </h3>
+          <h3>If You Are An Investor, We'd Love to Hear from You </h3>
         </div>
-        <div className="contactform-para-container">
-          <p>Please submit your information and a Designmodo representative will get in touch with you</p>
-        </div>
-        <div className="contactform-call-container">
-          <a href='#/'>
-            <p> <b>Call sales at +1 555 505 5050</b> </p>
-          </a>
+        <div className="contactform-para-container mb-5">
+          <p> Please submit your information and a Designmodo representative will get in touch with you </p>
         </div>
         <div className="contactform-button1-container">
         <label>
-          <input type="text" placeholder="Your name" className="your-name" value={name} onChange={(event) => setName(event.target.value)} />
+          <input type="text" placeholder="Your name" className="your-name rounded-full" value={name} onChange={(event) => setName(event.target.value)} />
         </label>
           <br />
           <label>
 
-            <input type="email" placeholder="Your email" className="email-id" value={email} onChange={(event) => setEmail(event.target.value)} />
+            <input type="email" placeholder="Your email" className="email-id rounded-full" value={email} onChange={(event) => setEmail(event.target.value)} />
           </label>
           
         </div>
         <br />
         <div className="contactform-button2-container">
           <label>
-            <input type="tel" placeholder="Your phone" className="your-phone" value={phone} onChange={(event) => setPhone(event.target.value)} />
+            <input type="tel" placeholder="Your phone" className="your-phone rounded-full" value={phone} onChange={(event) => setPhone(event.target.value)} />
           </label>
           <br />
           <label>
-            <select name="Budget" id="Budget" className='Budget' onChange={(event) => setBudget(event.target.value)} >
+            <select name="Budget" id="Budget" className='Budget rounded-full' onChange={(event) => setBudget(event.target.value)} >
               <option value="Budget">Budget</option>
             </select>
           </label>
           <br />
           <label>
-            <select name="Company-size" id="Company size" className='Company-size' onChange={(event) => setCompanySize(event.target.value)}>
+            <select name="Company-size" id="Company size" className='Company-size rounded-full' onChange={(event) => setCompanySize(event.target.value)}>
               <option value="Company-size">Company size</option>
             </select>
           </label>
@@ -72,6 +67,7 @@ function FeedbackForm() {
         <h5>Help</h5>
         <p>Need help? Don't hestiate to ask us somethnig. Email us directly info@designmodo.com or call us at 1-347-523-34-90. You can checkout our F.A.Q. and Help page to get more information about our products.</p>
       </div>
+      </Fade>
     </form>
   );
 }

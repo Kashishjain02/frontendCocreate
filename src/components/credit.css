@@ -4,15 +4,19 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    padding: 3em;
-    
+    padding: 2rem;    
 }
 .credit-left-container{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-top: -30px;
-    padding: 5em;
+    padding: 6em;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: flex-start;
+    gap: 2rem;
+    width: 45%;
 }
 .credit-heading-left-container h3{
     font-family: 'DM Sans';
@@ -40,23 +44,32 @@
 .credit-icon-left-container{
     display: flex;
     flex-direction: column;
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 28px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
 }
-.credit-icon1-left-container{
+.credit-icon1-left-container {
     display: flex;
     flex-direction: row;
-    gap: 6rem;
-    color: #0096F6;
 }
-.credit-icon2-left-container{
+.credit-icon1-left-container p{
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 6rem;
+  color: #0096F6;
+}
+.credit-icon2-left-container {
     display: flex;
     flex-direction: row;
     gap: 2rem;
     color: #0096F6;
+}
+
+.credit-icon2-left-container p{
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  color: #0096F6;
 }
 .credit-para2-left-container p{
     font-family: 'DM Sans';
@@ -65,7 +78,7 @@
     font-size: 15px;
     line-height: 30px;
     text-transform: capitalize;
-    color: rgba(164, 161, 255, 0.4);
+    color: rgba(21, 20, 57, 0.4);
     mix-blend-mode: normal;
 }
 .credit-right-container img{
@@ -76,11 +89,12 @@
 .apply-button{
     display: flex;
     flex-direction: row;
-    gap: 2rem;
-    align-items:baseline;
+    width: 300px;
+    margin-left: -50px;
+    align-items:flex-start;
+    text-align: left;
 }
 .Apply-Now{
-    background: #0096F6;
     border-radius: 100px;
     outline: none;
     border: none;
@@ -93,21 +107,26 @@
     display: flex;
     align-items: center;
     text-align: center;
-    color: #FFFFFF;
+    color: black;
+    border: 2px solid #0096F6;
+    padding: 1em;
+    width: 200px;
 }
 .apply-button a{
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 26px;
-    display: flex;
+    width: 100px;
     align-items: center;
     text-align: center;
     color: #0096F6;
 }
 
-
+.Apply-Now:hover{
+  color: white;
+  background-color: #0096F6;
+}
 /* For screens smaller than 768px */
 @media (max-width: 767px) {
     .credit-parent-container{
@@ -152,6 +171,7 @@
     
     .Apply-Now{
       padding: 0.5em 1em;
+      width: 40px;
       font-size: 16px;
       line-height: 22px;
     }

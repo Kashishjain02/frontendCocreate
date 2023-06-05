@@ -1,18 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "../store";
+import { setUser } from "../store/store";
 import "./registerform.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const RegisterMentor = () => {
   var time = new Date();
-  const dispatch = useDispatch();
+
   var year = time.getFullYear();
   var day = time.getDate();
   var month = time.getMonth() + 1;
-  const event = new Date(year, day, day, 14, 39, month);
+	const event = new Date(year, day, day, 14, 39, month);
+	const dispatch = useDispatch();
 
   const initial = {
     mentorid: "",

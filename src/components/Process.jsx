@@ -9,8 +9,8 @@ const Process = () => {
       <div className="process-parent-container">
         <div className="process-top-container">
           <div className="process-top-left-content">
-            <h6>OUR CORE VALUES</h6>
-            <h3><b>Goal focused</b></h3>
+            <h6 class="font-sans font-normal font-medium text-base leading-7 text-center text-blue-500">OUR CORE VALUES</h6>
+            <h2 class="font-sans font-normal font-bold text-4xl leading-14 text-blue-1000">Goal focused</h2>
             <p>
               Our Goal is to Build an equitable, inclusive, sustainable,
               <p> and
@@ -18,7 +18,7 @@ const Process = () => {
             </p>
           </div>
           <div className="process-top-right-content">
-            <h3><b>Continuous improvement</b></h3>
+            <h3 class="font-sans font-normal font-bold text-4xl leading-14 text-blue-1000">Continuous improvement</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -32,7 +32,7 @@ const Process = () => {
             <img src={Processbanner} alt="" />
         </div>
         <div className="process-bottom-conntainer">
-            <h2><b>The process we follow</b></h2>
+            <h2 class="font-sans font-normal font-semibold text-6xl leading-16 text-blue-900">The process we follow</h2>
             <div className="process-bottom-content-container">
                 <div className="bottom-content">
                     <img src={Lineicon} alt="" />
@@ -41,17 +41,17 @@ const Process = () => {
                 </div>
                 <div className="bottom-content">
                     <img src={Lineicon} alt="" />
-                    <h6><b>Conception</b></h6>
+                    <h6 class="font-sans font-normal font-medium text-lg leading-9 text-blue-900">Conception</h6>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
                 </div>
                 <div className="bottom-content">
                     <img src={Lineicon} alt="" />
-                    <h6><b>Design</b></h6>
+                    <h6 class="font-sans font-normal font-medium text-lg leading-9 text-blue-900">Design</h6>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
                 </div>
                 <div className="bottom-content">
                     <img src={Lineicon} alt="" />
-                    <h6><b>Development</b></h6>
+                    <h6 class="font-sans font-normal font-medium text-lg leading-9 text-blue-900">Development</h6>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
                 </div>
             </div>

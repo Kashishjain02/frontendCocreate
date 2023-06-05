@@ -11,17 +11,20 @@
 
 .upcomingevents-container{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    padding: 3% 16%;
+    /* padding: 3% 16%; */
+    margin-left: -10%;
     gap: 1rem;
+    margin-bottom: 4%;
 }
 
-.event-primary-heading{
+.event-primary-heading h3{
     overflow: hidden;
-    font-family: 'Proxima Nova';
+    font-family: 'Dm Sans';
 font-size: 40px;
+font-weight: 700;
 line-height: 47px;
 width: 391.81px;
 height: 51.79px;
@@ -38,30 +41,33 @@ font-size: 18px;
 line-height: 28px;
 color: #232536;
 opacity: 0.6;
+width: 80%;
 }
 
-.evnts-card-container{
+.events-card-container{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
     gap: 2rem;
     background: #FFFFFF;
-    padding: 0%15%4%17%;
+    /* padding: 0%15%4%17%; */
 }
 
 .events-card{
     display: flex;
-    flex-direction: column;
-    padding: 0%0%2%0%;
-    flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-top: 6px;
+    /* flex-direction: column; */
+    /* padding: 0%0%2%0%; */
+    padding: 3em;
+    /* flex-wrap: wrap;
+    flex-wrap: wrap; */
+    /* margin-top: 6px; */
     justify-content: center;
     align-items: left;
     text-align: left;
     border-radius: 5%;
     border: 1px solid #ddd;
+    height: 100px;
     box-shadow: 1px 10px 10px rgb(224, 223, 223);
 }
 

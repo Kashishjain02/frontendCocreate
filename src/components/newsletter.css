@@ -1,12 +1,12 @@
 .newsletter-parent-container{
-    background-image: url("../assets/Background.png");
-    /* background: #2F1893; */
-    /* background-position: center; */
+    background-image: url("../assets/Newsletter.png");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 1.5em;
+    /* width: 1000px; */
     /* opacity: ; */
-    /* mix-blend-mode: normal; */
+    /* border-radius: 14px; */
+    mix-blend-mode: normal;
 }
 
 .sub-newsletter-container{
@@ -42,6 +42,9 @@ mix-blend-mode: normal;
     flex-direction: row;
     gap: 4rem;
     
+}
+.newslettercontainer{
+  border-radius: 100px;
 }
 .name-container{
     border: 2px solid #FFFFFF;

@@ -4,8 +4,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2em;
+    /* padding: 2em; */
     gap: 1rem;
+    /* margin-top: 4%; */
     background-image: url("../assets/pitchbackground.png");
 }
 
@@ -82,5 +83,6 @@ color: #FFFFFF;
     color: #FFFFFF;
     outline: none;
     border: none;
-    width: 18%;
+    width: 200px;
+    padding: 1em;
 }

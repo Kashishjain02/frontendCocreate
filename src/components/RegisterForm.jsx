@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setUser } from "../store";
+import { setUser } from "../store/store";
 import "./registerform.css";
 import axios from "axios";
 import { Link } from "react-router-dom";

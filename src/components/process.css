@@ -23,6 +23,7 @@
     justify-content: space-evenly;
     align-items: flex-start;
     gap: 1rem;
+    margin-top: -6%;
 }
 
 .process-top-left-content h6{
@@ -83,7 +84,7 @@ color: #282938;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 3.6rem;
 }
 
 .process-bottom-content-container{
@@ -91,8 +92,9 @@ color: #282938;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 1em;
-    gap: 2rem;
+    /* padding: 4em; */
+    margin-left: 7%;
+    gap: 1rem;
 }
 
 .process-bottom-conntainer h2{
@@ -109,8 +111,8 @@ color: #282938;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    gap: 2rem;
-    padding: 2em;
+    gap: 0.7rem;
+    /* padding: 2em; */
 }
 
 .bottom-content h6{

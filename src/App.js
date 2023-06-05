@@ -34,7 +34,6 @@ import {ZoomMeeting} from './pages/ZoomMeet'
 // import Mentor from './components/Dashboard/Mentor';
 // import { Register } from './pages/Register';
 // import MockDash from './components/Dashboard/MockDash';
-import Navbars from "./components/Navbars";
 import "./App.css";
 import { Landing } from "./pages/Landing";
 import { SignInSide } from "./pages/Login.js";
@@ -46,8 +45,11 @@ import { About } from "./pages/About";
 import { Register } from "./pages/Register";
 import MentorProfile from './pages/MentorProfile';
 import Apply from './pages/BookSession';
+// import Footer from "./components/Footer";
+// import AppBar from './components/Appbar';
+import Navbars from "./components/Navbars";
 import Footer from "./components/Footer";
-import AppBar from './components/Appbar';
+
 
 
 function App() {
@@ -61,18 +63,19 @@ function App() {
     <div >
       {/* <Header/> */}
       <BrowserRouter>
-        <AppBar />
-        {/* <Navbars /> */}
+        {/* <AppBar /> */}
+        <Navbars />
         <Routes>
           <Route exact path="/" element={<Landing />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/register" element={<Register />} />
-        <Route exact path="/mentors" element={<Mentors />} />
-        <Route exact path="/mentor" element={<Mentor />} />
+        {/* <Route exact path="/mentors" element={<Mentors />} />
+        <Route exact path="/mentor" element={<Mentor />} /> */}
         <Route exact path="/investor-connect" element={<Investor />} />
         <Route exact path="/grant-connect" element={<Connect />} />
         <Route path="/login" element={<SignInSide />} />
-        <Route path="/mentor-connect" element={<MentorConnect />} />
+        <Route path="/mentor" element={<MentorConnect />} />
+        <Route exact path="/mentor-connect" element={<Mentor />} />
         <Route path="/profile/:id" element={<MentorProfile />} />
         <Route path="/apply/:id" element={<Apply />} />
         <Route path="/meeting" element={<MeetingForm />} />

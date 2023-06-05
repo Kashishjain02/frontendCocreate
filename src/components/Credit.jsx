@@ -1,6 +1,7 @@
 import React from "react";
 import "./credit.css";
 import Iphone from "../assets/iPhones.png";
+import teamimg from "../assets/teamimg.png"
 const Credit = () => {
   return (
     <div className="credit-parent-container">
@@ -19,12 +20,12 @@ const Credit = () => {
         </div>
         <div className="credit-icon-left-container">
           <div className="credit-icon1-left-container">
-            <p>✔&nbsp; &nbsp;CCL Credits</p>
-            <p>✔&nbsp; &nbsp;Easy to use</p>
+            <p>✔&nbsp; &nbsp; CCL Credits</p>
+            <p>&nbsp;&nbsp;✔&nbsp; &nbsp;  Easy to use</p>
           </div>
           <div className="credit-icon2-left-container">
             <p>✔&nbsp; &nbsp; Access (global experts)</p>
-            <p>✔&nbsp; &nbsp;No hidden cost</p>
+            <p>✔&nbsp; &nbsp;&nbsp;No hidden cost</p>
           </div>
         </div>
         <div className="credit-para2-left-container">
@@ -34,15 +35,15 @@ const Credit = () => {
             guidance & validation!
           </p>
         </div>
-        <div className="credit-button-left-container">
+        <div className="credit-button-left-container flex gap-3">
           <form className="apply-button">
-            <button type="Apply Now" className="Apply-Now">
+            <button type="submit" className="Apply-Now rounded-full">
               Apply Now
             </button>
-            <a href="#/">
-              <p>Avail Free Credits</p>
-            </a>
           </form>
+          <a href="#/"  className="font-medium text-base leading-6 text-center text-blue-500">
+            Avail Free Credits
+            </a>
         </div>
       </div>
       <div className="credit-right-container">
@@ -53,3 +54,4 @@ const Credit = () => {
 };
 
 export default Credit;
+
